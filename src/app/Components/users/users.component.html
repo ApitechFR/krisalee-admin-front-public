@@ -1,0 +1,66 @@
+<nb-card>
+    <nb-card-header class="title">
+        <h2 >Utilisateurs</h2>
+    </nb-card-header>
+    <nb-card-body>
+        <div>
+            <input type="text" nbInput fullWidth class="search-input"
+                shape="semi-round" placeholder="Rechercher des utilisateurs..." 
+                [(ngModel)]="searchText" (input)="applyFilter()"
+            >
+        </div>        
+        <div>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Identifiant</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Département</th>
+                    <th>Poste</th>
+                    <th>SMS exercice</th>
+                    <th>Notifié</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of filteredUsers">
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phoneNumber}}</td>
+                        <td>{{user.jobDepartment}}</td>
+                        <td>{{user.jobTitle}}</td>
+                        <td class="text-center">
+                            <span *ngIf="user.alert_level == 0">Non</span>
+                            <span *ngIf="user.alert_level == 1">Oui</span>
+                            <span *ngIf="user.alert_level != 0 && user.alert_level != 1">{{user.alert_level}}</span>
+                        </td>
+                        <td class="text-center">
+                            <i  [ngClass]="{'fas fa-check alerted': user.alerted,
+                                    'fa fa-exclamation alertedWithError': user.alertedWithError,
+                                    'fa fa-clock notAlerted': !user.alerted
+                                }" 
+                                [title]="user.alerted ? 'Utilisateur notifié' : user.alertedWithError ? 'Erreur, alerte mal envoyée' : 'Utilisateur pas encore notifié'">
+                            </i>
+                        </td>
+                        <td class="text-center">
+                            <i *ngIf="!user.is_alerting" class="fa fa-bell" nbPopover="notifier l'utilisateur par sms" nbPopoverTrigger="hint" nbPopoverPlacement="top"
+                            (click)="alert(user)">
+                            </i>
+                            <span *ngIf="user.is_alerting">
+                                <nb-icon class="nb-email alerting-icon" status="warning"></nb-icon>
+                            </span>
+                            <!-- <nb-card [nbSpinner]="true" nbSpinnerSize="small" nbSpinnerStatus="primary">
+                                <nb-card-body>Envoie sms encours</nb-card-body>
+                            </nb-card> -->
+                        </td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+    </nb-card-body>
+</nb-card>

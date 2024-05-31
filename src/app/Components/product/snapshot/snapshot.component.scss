@@ -1,0 +1,168 @@
+.header {
+  &:hover{
+    background-color: #67becf;
+  }
+  
+  .cursor {
+    cursor: context-menu;
+  }
+}
+
+.expanded {
+  background-color: #7cbfcb;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.body {
+  max-height: 10rem;
+  overflow-y: scroll;
+  .margin {
+    margin: 0.5rem;
+    background-color: #cfe2e6;
+  }
+}
+
+.timesColor {
+  color: #e33768;
+}
+
+#scrollStyle::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#scrollStyle::-webkit-scrollbar
+{
+	width: 0.25rem;
+    height: 0.4rem;
+	background-color: #F5F5F5;
+}
+
+#scrollStyle::-webkit-scrollbar-thumb
+{
+	background-color: #0ae;
+}
+
+
+.container1 {
+  background-color: rgb(103, 104, 105);
+  opacity: 50%;
+  z-index: 2;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding: 20px 20px;
+}
+
+//defining variables
+
+$cd-bars: #15DEA5;
+$size: 0.5vh;
+$anim-dur: 1000ms;
+$anim-delay: $anim-dur/5;//math.div($anim-dur, 5); 
+
+.load {
+  width: $size*10;
+  height: $size*7.5;
+  display: flex;
+  justify-content: space-evenly;
+
+
+  &__bar {
+      background-color: $cd-bars;
+      height: 100%;
+      width: $size;
+      animation: bars $anim-dur backwards infinite;
+
+
+      @for $i from 1 through 5 {
+          &--#{$i} {
+              animation-delay: $anim-delay * $i;
+          }
+      }
+  }
+}
+
+
+@keyframes bars {
+  0% {
+      transform: scaleY(0.5);
+  }
+  100% {
+      transform: scaleY(1.0);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    // Override display property to ensure both divs are displayed in the same line
+    display: flex;
+  }
+
+  .cursor,
+  .icons {
+    // Adjust width for each div to occupy different proportions of the available space
+    flex: 1;
+    font-size: 0.8rem;
+  }
+}
+
+// .pulse-loader {
+//   background-color: rgb(103, 104, 105);
+//     opacity: 50%;
+//     z-index: 2;
+//     position: absolute;
+//     top: 0%;
+//     left: 0%;
+//     width: 100%;
+//     height: 100%;
+//     // padding: 20px 20px;
+
+    
+//   display: flex;
+//   align-items: center;
+
+//   justify-content: center;
+
+//   > div {
+//     background-color: currentColor;
+//     margin-right: 5%;
+//     width: 30%;
+//     height: 100%;
+//     border-radius: 100%;
+//     animation: pulse 1s ease infinite;
+
+//     &:nth-child(2) {
+//       animation-delay: 100ms;
+//     }
+
+//     &:nth-child(3) {
+//       margin-right: 0;
+//       animation-delay: 200ms;
+//     }
+//   }
+// }
+
+// @keyframes pulse {
+//   0%, 60%, 100% {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+
+//   30% {
+//     opacity: .1;
+//     transform: scale(.01);
+//   }
+// }

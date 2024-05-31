@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+    frontend:
+        image: krisalee-frontend:latest
+        build:
+            dockerfile: Dockerfile
+            context: .

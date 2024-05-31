@@ -1,0 +1,42 @@
+<div class="row" id="emergency-mode-row">
+  <!-- <div class="col-md-6">
+    <ngx-status-card [title]="emergencyStatusCard.title" [type]="emergencyStatusCard.type">
+      <i [ngClass]="emergencyStatusCard.iconClass"></i>
+    </ngx-status-card>
+  </div> -->
+  <div class="message">
+    Bienvenue sur krisalee !
+  </div>
+  <div class="col-md-12 cards">
+    <ngx-text-card class="welcome" [content]="welcomeModeDetails.content" [type]="welcomeStatusCard.type">
+    </ngx-text-card>
+    <ngx-text-card class="danger" [content]="emergencyModeDetails.content" [type]="emergencyStatusCard.type">
+    </ngx-text-card>
+  </div>
+  <div class="col-md-12 services">
+    <ngx-text-card class="service" [content]="servicesModeDetails.content" [type]="serviceStatusCard.type">
+    </ngx-text-card>
+  </div>
+  <div class="info">
+    <p style="font-size: 17px;"> La gestion d'une crise vous plonge dans le doute et le besoin de vous réadapter à très court terme et de façon cyclique...<br></p>
+    "<strong style="color: #31B4AB;">krisalee</strong> vient vous accompagner dans cette gestion pour faire preuve de résilience"<br>
+    <p class="support">En cas de problème contacter : <strong style="color: #31B4AB;">{{email}}</strong> </p>
+  </div>
+
+  <!-- <div class="col-md-6">
+    <nb-card>
+      <nb-card-header>Pie</nb-card-header>
+      <nb-card-body>
+        <ngx-echarts-pie></ngx-echarts-pie>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-6">
+    <nb-card>
+      <nb-card-header>Utilisation du <strong>SI de Survie</strong> sur les 7 derniers mois</nb-card-header>
+      <nb-card-body>
+        <ngx-echarts-bar></ngx-echarts-bar>
+      </nb-card-body>
+    </nb-card>
+  </div> -->
+</div>

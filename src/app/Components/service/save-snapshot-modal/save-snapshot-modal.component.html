@@ -1,0 +1,45 @@
+<!-- <div id="myModal" *ngIf="!downManyServices"> -->
+    <div id="myModal" class="popup" [ngClass]="{'open': isPopupOpen}">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header flex-column">
+                    <div class="icon-box">
+                        <i class="fa {{headerIcon}}" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p class="paragraph">{{content}}</p>
+                    <form [formGroup]="form" (submit)="submit()">
+                            <label class="custom-radio-label" (click)="showCommentTextArea(true)">
+                                <input type="radio" formControlName="answer" [value]="true" class="custom-radio-input" *ngIf="confirmButtonContent">
+                                <span>{{confirmButtonContent}}</span>
+                            </label>
+                            <div *ngIf="servicesToStop">
+                                <nb-card *ngIf="showCommentInput">
+                                    <nb-card-body class="card-body">
+                                        <div *ngFor="let service of servicesToStop">
+                                            <!-- if we choose to save the snapshot(s) we should show the bellow text area for binding some comment to this snapshot -->
+                                            <div>
+                                                <label for="comment"></label><strong>Commentaire pour le service <span style="color: #15DEA5;">{{service.name}}</span>: </strong>
+                                                <textarea rows="3" cols="40" nbInput fullWidth shape="round"  
+                                                        placeholder="Laissez un commentaire pour cette sauvegarde pour se rappeler des modification apportées etc." 
+                                                        id="comment" [formControl]="form.get('comments.' + service.service_id)">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                    </nb-card-body>
+                                </nb-card>
+                            </div>
+                            <label class="custom-radio-label" (click)="showCommentTextArea(false)">
+                                <input type="radio" formControlName="answer" [value]="false" class="custom-radio-input" *ngIf="DenyButtonContent">
+                                <span>{{DenyButtonContent}}</span>
+                            </label>
+                        <div class="btn-class">
+                            <button class="btn btn-secondary" nbButton (click)="cancel()">Annuler</button>
+                            <button class="btn btn-primary" nbButton type="submit" [disabled]="form.invalid"> {{validateButtonContent}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

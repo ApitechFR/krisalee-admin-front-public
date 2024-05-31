@@ -1,0 +1,55 @@
+nb-card-body {
+    display: flex;
+  }
+
+  .start-all-button{
+    padding: 0.5rem 1rem;
+    background-color: #55c2da;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+    .rocket{
+        color: red; 
+        margin-right: 0.8rem;
+    }
+
+    &:hover{
+      background-color: #7ccee1;
+      color: #000;
+    }
+  }
+  
+  .title {
+    text-align: center;
+    background-color: #31B4AB;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .sub-title {
+    text-align: center;
+    display: block;
+    margin-bottom: 3rem;
+  }
+  
+  .home-button {
+    margin-bottom: 2rem;
+  }
+
+  .nopadding{
+    padding: 0px;
+  }
+  
+
+  @media screen and (max-width: 600px){
+    nb-card-body {
+      padding: 0;
+      .nopadding{
+        padding: 0;
+      }
+    }
+    h2{
+      font-size: 1.7rem;
+    }
+}

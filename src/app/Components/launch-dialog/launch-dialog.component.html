@@ -1,0 +1,26 @@
+<div class="container">
+    <h3>{{service.name}}</h3>
+        <form [formGroup]="startServiceForm" (submit)="submit()">
+            <label for="modeLancement">Sauvegarde :</label>
+            <span *ngIf="!snapshots">
+                <nb-select selected="" placeholder="Premier démarrage, aucune données" formControlName="snapshot" class="dropdown">
+                </nb-select>
+            </span>
+            <span  *ngIf="snapshots">
+                <nb-select selected="" placeholder="Choisissez une sauvegarde" formControlName="snapshot" class="dropdown">
+                <!-- <nb-select selected="" placeholder="{{getLatest().create_date | date:'dd/MM/yy HH:mm:ss'}}" formControlName="snapshot" class="dropdown"> -->
+                    <nb-option *ngFor="let item of snapshots" [value]="item.snapshot_id">
+                        {{item.create_date | date:"dd/MM/yy HH:mm:ss"}} 
+                        <span *ngIf="item.snapTags.length">
+                            (<span *ngFor="let tag of item.snapTags">{{tag.name}}</span>)
+                        </span>
+                        
+                    </nb-option>
+                </nb-select>
+            </span>
+            <div class="btn-class">
+                <button class="cancel" nbButton status="danger" (click)="cancel()">Annuler</button>
+                <button class="valider" nbButton status="primary" type="submit" [disabled] ="startServiceForm.invalid && snapshots" [ngClass]="{'disabled': startServiceForm.invalid && snapshots}">Valider</button>
+            </div>
+        </form>
+</div>

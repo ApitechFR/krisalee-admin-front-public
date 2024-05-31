@@ -1,0 +1,19 @@
+    <div id="myModal">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header flex-column">
+                    <div class="icon-box">
+                        <i class="fa {{headerIcon}}" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="modal-title w-100">Êtes-vous sûr ?</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="paragraph">{{content}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">Annuler</button>
+                    <button type="button" class="btn btn-danger" (click)="submit()">{{Action}}</button>
+                </div>
+            </div>
+        </div>
+    </div>

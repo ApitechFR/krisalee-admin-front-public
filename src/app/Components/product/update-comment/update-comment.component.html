@@ -1,0 +1,19 @@
+<nb-card class="container">
+    <nb-card-header>
+        Commentaire pour la sauvegarde du {{snapshot.create_date | date:"dd/MM/yy HH:mm:ss"}}
+    </nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="form">
+            <textarea rows="6" cols="40" nbInput fullWidth shape="round"  
+                id="comment" formControlName="comment">
+                {{snapshot.comment}}
+            </textarea>
+        </form>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="btn-class">
+            <button class="cancel" nbButton status="danger" (click)="cancel()">Annuler</button>
+            <button class="valider" nbButton status="primary" (click)="submit()">valider</button>
+        </div>
+    </nb-card-footer>
+</nb-card>

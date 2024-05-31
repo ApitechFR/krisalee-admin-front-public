@@ -1,0 +1,50 @@
+<div class="container">
+    <h3>Lancement</h3>
+        <form [formGroup]="form" (submit)="submit()">
+                <label class="modelancement">Mode de lancement : </label>
+                <nb-select 
+                        (selectedChange)="onChange($event)" 
+                        [status]="status" selected="prod" 
+                        placeholder="Choisissez un mode de lancement" 
+                        formControlName="mode_lancement" class="maindropdown"
+                >
+                    <nb-option *ngFor="let tag of tags" [value]="tag">{{tag.name}}</nb-option>
+                    <nb-option [value]="CustomTag">{{CustomTag.name}}</nb-option>
+                </nb-select>
+                <div class="description">
+                    {{tagDescription}}
+                </div>
+                <div formArrayName="services_to_launch" *ngIf="isFormControlVisible">
+                <!-- the following controls here(services_to_launch attribute) stands for the list of formGroups -->
+                <div [formGroupName]="i" *ngFor="let item of form.controls?.services_to_launch?.controls; let i = index" class="checkboxAndDropdown">
+                    <span class="checkboxParent">
+                        <nb-checkbox checked formControlName="checked" class="checkbox">{{ services[i].name }} : </nb-checkbox>
+                    </span>
+                    <!-- <label *ngIf="teamLead.get('service_id')?.hasError('required')" class="error">Name required. </label> -->
+                    <nb-select selected="" class="dropdown" formControlName="snapshot" placeholder="Choisissez une sauvegarde" [disabled]="!(item.controls.checked.value)">
+                        <nb-option *ngFor="let snapshot of services[i].snapshots" [value]="snapshot.snapshot_id"> 
+                            {{snapshot.create_date | date:"dd/MM/yy HH:mm:ss"}} 
+                            <span *ngIf="snapshot.snapTags.length">
+                                (<span *ngFor="let tag of snapshot.snapTags">{{tag.name}}
+                                </span>)
+                            </span>
+                        </nb-option>
+                    </nb-select>
+                </div>
+                </div>
+                <div *ngIf="isAlertLevel0CheckboxVisible">
+                    <nb-checkbox checked formControlName="alert_level_0" class="alert_level_0">
+                        Alerter par SMS les utilisateurs de niveau 0.
+                    </nb-checkbox>
+                </div>
+            <!-- <hr> -->
+            <!-- <h5>Options</h5>
+            <nb-checkbox checked formControlName="notifyUsers" class="checkbox">Notifier une part des utilisateurs(que les admins?)</nb-checkbox><br>
+            <nb-checkbox checked formControlName="forcePasswordModification" class="checkbox">Forcer la modification des mots de passe</nb-checkbox> -->
+            <div class="btn-class">
+                <button class="cancel" nbButton status="danger" (click)="cancel()">Annuler</button>
+                <!-- <button class="valider" nbButton status="primary" type="submit" [disabled]="!startServiceForm.valid">Valider</button> -->
+                <button class="valider" nbButton status="primary" type="submit" [disabled] ="form.invalid" [ngClass]="{'disabled': form.invalid}">Valider</button>
+            </div>
+        </form>
+</div>

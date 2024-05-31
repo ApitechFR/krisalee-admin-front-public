@@ -1,0 +1,16 @@
+<div class="container">
+    <h5>Ajout d'un label</h5>
+    <form [formGroup]="form" (submit)="submit()">
+         <label><strong>Nom du label: </strong></label>
+        <nb-select class="dropdown" formControlName="tag_id" placeholder="Choisissez un label">
+            <nb-option *ngFor="let tag of tags" value="{{tag.tag_id}}"> 
+                {{tag.name}}
+            </nb-option>
+        </nb-select>  
+        <br>
+        <div class="btn-class">
+            <button class="cancel" nbButton status="danger" (click)="cancel()">Annuler</button>
+            <button class="valider" nbButton status="primary" type="submit" [disabled]="form.invalid" [ngClass]="{'disabled': form.invalid}">Valider</button>
+        </div>
+    </form> 
+</div>

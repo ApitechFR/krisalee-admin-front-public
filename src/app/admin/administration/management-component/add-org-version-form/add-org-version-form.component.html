@@ -1,0 +1,22 @@
+<div class="container">
+    <h5>{{title}}</h5>
+    <form [formGroup]="form" (submit)="submit()">
+        <label><strong>Organization : </strong></label>
+        <nb-select class="dropdown" formControlName="organization_id" placeholder="Choisissez une organization">
+            <nb-option *ngFor="let organization of organizations" value="{{organization.organization_id}}"> 
+                {{organization.name}}
+            </nb-option>
+        </nb-select>  
+        <br><br>
+        <label><strong>Les services nécessaires pour la version : </strong></label>
+        <nb-select multiple class="dropdown" formControlName="depends_on" placeholder="depends_on">
+            <nb-option *ngFor="let service of services" value="{{service.service_id}}"> 
+                {{service.name}}
+            </nb-option>
+        </nb-select>
+        <div class="btn-class">
+            <button class="cancel" nbButton status="danger" (click)="cancel()">Annuler</button>
+            <button class="valider" nbButton status="primary" type="submit" [disabled]="form.invalid" [ngClass]="{'disabled': form.invalid}">Valider</button>
+        </div>
+    </form> 
+</div>

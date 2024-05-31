@@ -1,0 +1,172 @@
+// Définition des breakpoints
+$small-screen: 576px; // Mobiles
+$medium-screen: 768px; // Tablettes
+$large-screen: 992px; // Ordinateurs portables
+$extra-large-screen: 1200px; // Ordinateurs de bureau
+
+// .container {
+//     // background-color: rgb(247, 247, 238);
+// }
+
+.header {
+    margin-bottom: 0.8rem;
+}
+.add-button {
+    border: none;
+    color: azure;
+    background-color: inherit;
+    transition: transform 0.1s ease;
+    &:focus {
+        outline: none;
+    }
+
+    i {
+        color: rgb(54, 160, 231);
+        &:hover {
+            color: rgb(17, 146, 233);
+            background-color: inherit;
+            transform: scale(1.2);
+        }
+    }
+}
+.add-org-btn {
+    color: azure;
+    background-color: rgb(54, 160, 231);
+    border: 1px solid rgb(54, 160, 231);
+    border-radius: 5px;
+    transition: transform 0.1s ease;
+    margin-right: 0.3rem;
+    &:focus {
+        outline: none;
+    }
+    &:hover{
+        transform: scale(1.02);
+    }
+}
+.remove-org-btn {
+    color: azure;
+    background-color: #e33768;
+    border: 1px solid #e33768;
+    border-radius: 5px;
+    transition: transform 0.1s ease;
+    &:focus {
+        outline: none;
+    }
+    &:hover{
+        transform: scale(1.02);
+    }
+}
+.delete-button{
+    border: none;
+    background-color: inherit;
+    color: #e33768;
+    transition: transform 0.1s ease;
+
+    &:hover {
+        color: #eb275f;
+        transform: scale(1.2);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+// Media queries pour les mobiles
+@media screen and (max-width: $small-screen) {
+    .version {
+        font-size: 0.6rem;
+        display: flex;
+        align-items: center;
+        margin-left: 0.3rem;
+    }
+    .remove-org-btn, .add-org-btn{
+        margin: 0.2rem;
+    }
+    .actions {
+        margin-left: 2rem;
+        margin-right: 0.3rem;
+    }
+
+    .title {
+        margin-top: 1.5rem;
+    }
+
+    label {
+        width: 30rem;
+    }
+}
+
+// Media queries pour les tablettes
+@media screen and (min-width: $medium-screen) and (max-width: $large-screen) {
+    .version {
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        margin-left: 1.5rem; 
+    }
+    .remove-org-btn, .add-org-btn{
+        margin: 0.2rem;
+    }
+    .actions {
+        margin-left: 7rem;
+        margin-right: 1rem;
+    }
+
+    .title {
+        margin-top: 1rem;
+    }
+
+    label {
+        width: 30rem;
+    }
+}
+
+// Media queries pour les ordinateurs portables
+@media screen and (min-width: $large-screen) and (max-width: $extra-large-screen) {
+    .version {
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        margin-left: 3rem;
+    }
+    .remove-org-btn, .add-org-btn{
+        margin: 0.5rem;
+    }
+    .actions {
+        margin-left: 15rem;
+        margin-right: 2rem;
+    }
+
+    .title {
+        margin-top: 1.8rem;
+    }
+
+    label {
+        width: 35rem;
+    }
+}
+
+// Media queries pour les ordinateurs de bureau
+@media screen and (min-width: $extra-large-screen) {
+    .version {
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        margin-left: 3rem;
+    }
+    .remove-org-btn, .add-org-btn{
+        margin: 0.5rem;
+    }
+    .actions {
+        margin-left: 18rem;
+        margin-right: 2rem;
+    }
+
+    .title {
+        margin-top: 2rem;
+    }
+
+    label {
+        width: 45rem;
+    }
+}

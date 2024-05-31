@@ -1,0 +1,9 @@
+<div class="container">
+    <h4>{{connector.name}}</h4>
+    <form [formGroup]="form" (submit)="submit()">
+        <h5> Planification : </h5>
+        <nb-select selected="options[0]" class="dropdown" formControlName="planification">
+            <nb-option *ngFor="let option of options" value="option">{{option}}</nb-option>
+        </nb-select>
+    </form>
+</div>

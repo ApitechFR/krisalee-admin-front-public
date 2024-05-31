@@ -1,0 +1,101 @@
+// Définition des breakpoints
+$small-screen: 576px; // Mobiles
+$medium-screen: 768px; // Tablettes
+$large-screen: 992px; // Ordinateurs portables
+$extra-large-screen: 1200px; // Ordinateurs de bureau
+
+nb-card-body {
+    display: flex;
+  }
+
+  .title {
+    text-align: center;
+    background-color: #31B4AB;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+.purge {
+    padding: 0.5rem 1rem;
+    background-color: #a9b4b6;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+    margin-left: 4rem;
+    .delete{
+        color: #e33768; 
+        margin-right: 0.8rem;
+    }
+    .import{
+        color: #1d1b1b; 
+        margin-right: 0.8rem;
+    }
+
+    &:hover:enabled{
+      background-color: #94a1a4;
+      color: #000;
+    }
+  }
+
+  .import {
+    padding: 0.5rem 1rem;
+    background-color: #97e4f2;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+    margin-left: 4rem;
+    .icon_import{
+        color: #1d1b1b; 
+        margin-right: 0.8rem;
+    }
+
+    &:hover:enabled{
+      background-color: #82ddf1;
+      color: #000;
+    }
+  }
+
+// Media queries pour les mobiles
+@media screen and (max-width: $small-screen) {
+  .purge, .import {
+    font-size: 14px;
+    margin-left: 2rem;
+  }
+  .purge{
+    margin-top: 1rem;
+  }
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  nb-card-body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+// Media queries pour les tablettes
+@media screen and (min-width: $medium-screen) and (max-width: $large-screen) {
+  .purge, .import {
+    margin-left: 2rem;
+    font-size: 18px;
+  }
+}
+
+// Media queries pour les ordinateurs portables
+@media screen and (min-width: $large-screen) and (max-width: $extra-large-screen) {
+  .purge, .import {
+    margin-left: 4rem;
+    font-size: 20px;
+  }
+}
+
+// Media queries pour les ordinateurs de bureau
+@media screen and (min-width: $extra-large-screen) {
+  .purge, .import {
+    margin-left: 6rem;
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,38 @@
+<div class="container">
+    <h5 class="title">Gestion des {{itemName}}</h5>
+    <button *ngIf="itemName !== 'labels'" class="add-button" (click)="add.emit()" title="ajouter nouveau">
+        <i class="fa fa-plus-circle fa-lg"></i>
+    </button>
+    <table class="table table-bordered">
+        <thead>
+            <th>NOM</th>
+            <th>DESCRIPTION</th>
+            <th>ACTIONS</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td>
+                    <strong>{{item.name}}</strong>
+                    <div *ngIf="itemName == 'Produits'">
+                        <!-- here item stands for product -->
+                        <ngx-version  
+                                    [versions]="item.versions" 
+                                    (addVersion)="addVersion.emit(item)" 
+                                    (deleteVersion)="sendEventToParent(item, $event)" 
+                                    (affectOrganization)="sendAffectOrganizationEvent(item, $event)" 
+                                    (unassignOrganization)="sendUnassignOrganizationEvent(item, $event)">
+                        </ngx-version>
+                    </div>
+                </td>
+                <td>
+                    {{item.description}}
+                </td>
+                <td>
+                    <button class="update-button"  (click)="update.emit(item)" ><i class="fa fa-edit"></i></button>
+                    <button class="delete-button" (click)="delete.emit(item)" *ngIf="!(item.system)"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

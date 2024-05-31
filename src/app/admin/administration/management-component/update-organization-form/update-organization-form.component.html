@@ -1,0 +1,126 @@
+<div class="container">
+    <form [formGroup]="form" (submit)="submit()">
+        <nb-card class="card">
+            <nb-card-header>
+                <h5>Mise à jour de l'organisation {{organization.name}}</h5>
+            </nb-card-header>
+            <nb-card-body>
+                <!-- Informations de l'organisation -->
+                <h6>Informations de l'organisation</h6>
+                <hr>
+                <label><strong>Nom: </strong>
+                    <input type="text" nbInput fullWidth shape="semi-round" placeholder="Veuillez saisir le nom de votre organisation" formControlName="name">
+                </label>
+               <br>
+                <label for="ORG_DOMAIN"><strong>nom de domaine de l'organisation :</strong>
+                    <input  nbInput fullWidth shape="semi-round"  placeholder="Exemple: krisalee.joona.fr" id="ORG_DOMAIN" formControlName="ORG_DOMAIN">
+                </label>
+                <br>
+               <!-- <strong>Voulez-vous donner les privilèges d'administration à cet organisation ? </strong>
+               <label for="is_root_true">
+                    <input type="radio" id="is_root_true" formControlName="is_root" [value]="true" class="custom-radio-input"> Oui
+               </label>
+               <label for="is_root_false">
+                    <input type="radio" id="is_root_false" formControlName="is_root" [value]="false" class="custom-radio-input"> Non
+               </label>
+               <br> -->
+        
+                <!-- section pour le définition des urls des services  -->
+               <h6>Urls d'accès au services de votre organisation</h6>
+               <hr>
+               <label for="auth"><strong>Service d'authentification : </strong>
+                    <input nbInput fullWidth shape="round"  placeholder="{{servicesUrlsPlaceholder}}" id="auth" formControlName="auth">
+                </label>
+               <br>
+               <label for="mail"><strong>Service mail : </strong>
+                    <input nbInput fullWidth shape="round"  placeholder="{{servicesUrlsPlaceholder}}" id="mail" formControlName="mail">
+                </label>
+               <br>
+               <label for="drive"><strong>Service de partage de documents : </strong>
+                    <input nbInput fullWidth shape="round"  placeholder="{{servicesUrlsPlaceholder}}" id="drive" formControlName="drive">
+                </label>
+               <br>
+               <label for="website"><strong>Service du site interne : </strong>
+                    <input nbInput fullWidth shape="round"  placeholder="{{servicesUrlsPlaceholder}}" id="website" formControlName="website">
+               </label>
+               <br>
+               <label for="chat"><strong>Service de messagerie instantanné : </strong>
+                    <input nbInput fullWidth shape="round"  placeholder="{{servicesUrlsPlaceholder}}" id="chat" formControlName="chat">
+               </label>
+               <br>
+        
+               <!-- section pour la définition des identifiants d'accès au services -->
+               <h6>Identifiants d'accès aux services de votre organisation</h6>
+               <hr>
+        
+               <label for="NEXT_CLOUD_USERNAME"><strong>Nom d'utilisateur du service de partage de documents : </strong>
+                    <input nbInput fullWidth shape="round"  placeholder="Username" id="NEXT_CLOUD_USERNAME" formControlName="NEXT_CLOUD_USERNAME">
+               </label>
+               <br>
+               <label for="NEXT_CLOUD_PASSWORD"><strong>Mot de passe du service de partage de documents : </strong>
+                    <input type="password" nbInput fullWidth shape="round"  placeholder="**********" id="NEXT_CLOUD_PASSWORD" formControlName="NEXT_CLOUD_PASSWORD">
+               </label>
+               <br>
+               <label for="MAILSERVER_POSTMASTER_USERNAME"><strong>Nom d'utilisateur du service mail (admin master) : </strong>
+                <input nbInput fullWidth shape="round"  placeholder="Username" id="MAILSERVER_POSTMASTER_USERNAME" formControlName="MAILSERVER_POSTMASTER_USERNAME">
+                </label>
+                <br>
+                <label for="MAILSERVER_POSTMASTER_PASSWORD"><strong>Mot de passe du service mail (admin master): </strong>
+                    <input type="password" nbInput fullWidth shape="round"  placeholder="**********" id="MAILSERVER_POSTMASTER_PASSWORD" formControlName="MAILSERVER_POSTMASTER_PASSWORD">
+                </label>
+                <br>
+        
+                <!-- section pour définir d'autres paramètres -->
+                <h5>Autres informations</h5>
+                <hr>
+                <label for="HOST_DATA_SSH_PORT"><strong>Port ssh utilisé : </strong>
+                    <input type="number" nbInput fullWidth shape="round"  placeholder="Exemple: 22" id="HOST_DATA_SSH_PORT" formControlName="HOST_DATA_SSH_PORT">
+                </label>
+                <br>
+                <label for="SFTP_HOST"><strong>Adresse du serveur SFTP : </strong>
+                    <input  nbInput fullWidth shape="semi-round"  placeholder="Saisissez l'adresse de votre serveur sftp" id="SFTP_HOST" formControlName="SFTP_HOST">
+                </label>
+                <br>
+                <label for="SFTP_PORT"><strong>Port SFTP: </strong>
+                    <input  type="number" nbInput fullWidth shape="semi-round"  placeholder="Exemple : 2240" id="SFTP_PORT" formControlName="SFTP_PORT">
+                </label>
+                <br>
+                <label for="SFTP_USERNAME"><strong>Nom d'utilisateur SFTP : </strong>
+                    <input  nbInput fullWidth shape="semi-round"  placeholder="Username" id="SFTP_USERNAME" formControlName="SFTP_USERNAME">
+                </label>
+                <br>
+                <label for="SFTP_PASSWORD"><strong>Mot de passe : </strong>
+                    <input type="password" nbInput fullWidth shape="semi-round"  placeholder="**********" id="SFTP_PASSWORD" formControlName="SFTP_PASSWORD">
+                </label>
+                <br>
+                
+                <!-- Informations keycloak admin -->
+                <h6>Informations du service keycloak</h6>
+                <hr>
+        
+                <label for="KC_SERVICE_ADMIN_CLIENT_ID"><strong>Identifiant du client : ?</strong>
+                    <input  nbInput fullWidth shape="semi-round"  placeholder="id_client" id="KC_SERVICE_ADMIN_CLIENT_ID" formControlName="KC_SERVICE_ADMIN_CLIENT_ID">
+                </label>
+                <br>
+                <label for="KC_SERVICE_URL"><strong>Url du service keycloak : ?</strong>
+                    <input  nbInput fullWidth shape="semi-round"  placeholder="{{servicesUrlsPlaceholder}}" id="KC_SERVICE_URL" formControlName="KC_SERVICE_URL">
+                </label>
+                <br>
+                <label for="KC_SERVICE_ADMIN_USERNAME"><strong>Nom d'utilisateur du service keycloak : </strong>
+                    <input nbInput fullWidth shape="round"  placeholder="Username" id="KC_SERVICE_ADMIN_USERNAME" formControlName="KC_SERVICE_ADMIN_USERNAME">
+                </label>
+                <br>
+                <label for="KC_SERVICE_ADMIN_PASSWORD"><strong>Mot de passe du service keycloak : </strong>
+                    <input type="password" nbInput fullWidth shape="round"  placeholder="**********" id="KC_SERVICE_ADMIN_PASSWORD" formControlName="KC_SERVICE_ADMIN_PASSWORD">
+                </label>
+                <br>
+            </nb-card-body>
+            <nb-card-footer>
+                <div class="btn-class">
+                    <button class="cancel" nbButton status="danger" (click)="cancel()">Annuler</button>
+                    <button class="valider" nbButton status="primary" type="submit" [disabled]="form.invalid" [ngClass]="{'disabled': form.invalid}">Valider</button>
+                </div>
+            </nb-card-footer>
+        </nb-card>
+    </form>
+</div>

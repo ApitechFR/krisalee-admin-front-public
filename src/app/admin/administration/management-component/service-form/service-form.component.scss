@@ -1,0 +1,150 @@
+// Définition des breakpoints
+$small-screen: 576px; // Mobiles
+$medium-screen: 768px; // Tablettes
+$large-screen: 992px; // Ordinateurs portables
+$extra-large-screen: 1200px; // Ordinateurs de bureau
+
+.container {
+    width: 40rem;
+    background-color: #ebedf3;
+    padding: 1.3rem;
+}
+
+.title {
+    margin-top: 1.8rem;
+}
+
+label {
+    width: 40rem;
+}
+
+.btn-class {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10rem;
+    button {
+        width: 6.25rem;
+        height: 2.5rem;
+        border: 0.06rem solid transparent; 
+        border-radius: 0.25rem;
+        color: white;
+        &.valider{
+            background-color: blue;
+        }
+        &.cancel {
+            background-color: red;
+        }
+
+        &.disabled {
+            background-color: rgb(161, 159, 159);
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px){
+    form {
+        width: 20rem;
+        height: 15rem;
+        background-color: #ebedf3;
+    }
+    h4{
+        font-size: 0.8em;
+    }
+    h5{
+        font-size: 0.8em;
+    }
+    .btn-class {
+        margin-top: 2rem;
+        button {
+            width: 4rem;
+            height: 1.9rem;
+            border-radius: 0.15rem;
+            font-size: 0.8rem
+        }
+    }
+    .dropdown{
+        min-width: 9rem;
+    }
+}
+
+// Media queries pour les mobiles
+@media screen and (max-width: $small-screen) {
+    .container {
+        width: 22rem;
+        height: 22rem;
+    }
+
+    .title {
+        margin-top: 1rem;
+    }
+
+    h5 {
+        font-size: 1.2rem;
+    }
+
+    label {
+        width: 20rem;
+    }
+
+    .btn-class {
+        margin-top: 1rem;
+
+        button {
+            width: 4rem;
+            height: 1.9rem;
+            border-radius: 0.15rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    .dropdown {
+        min-width: 5rem;
+    }
+}
+
+// Media queries pour les tablettes
+@media screen and (min-width: $medium-screen) and (max-width: $large-screen) {
+    .container {
+        width: 30rem;
+    }
+
+    .title {
+        margin-top: 1.5rem;
+    }
+
+    label {
+        width: 30rem;
+    }
+}
+
+// Media queries pour les ordinateurs portables
+@media screen and (min-width: $large-screen) and (max-width: $extra-large-screen) {
+    .container {
+        width: 35rem;
+    }
+
+    .title {
+        margin-top: 1.8rem;
+    }
+
+    label {
+        width: 35rem;
+    }
+}
+
+// Media queries pour les ordinateurs de bureau
+@media screen and (min-width: $extra-large-screen) {
+    .container {
+        width: 45rem;
+    }
+
+    .title {
+        margin-top: 2rem;
+    }
+
+    label {
+        width: 45rem;
+    }
+}

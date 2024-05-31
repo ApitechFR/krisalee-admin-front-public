@@ -1,0 +1,33 @@
+<nb-card>
+    <nb-card-header class="title">
+        <h2 >Connecteurs</h2>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="container-fluid nopadding">
+            <!-- <div class="row" *ngIf="!allStarted">
+                <button nbButton (click)="launchAll()" type="button" class="start-all-button" [disabled]="iscreating">
+                    <span class="rocket">
+                        <i class="fa fa-rocket" aria-hidden="true" style="font-size:18px"></i>
+                    </span>
+                    Démarrer tout
+                </button>
+            </div>
+            <div class="row" *ngIf="allStarted">
+                <button nbButton (click)="stopAll()" type="button" class="start-all-button" [disabled]="isdeleting">
+                    <span class="rocket">
+                        <i class="fa fa-stop" aria-hidden="true" style="font-size:18px"></i>
+                    </span>
+                    Arrêter tout
+                </button>
+            </div> -->
+            <div class="row" *ngFor="let connector of connectors">
+                <!-- <ngx-sub-component [connector]="connector" class="col-12" (launch)="start(connector)" (stop)="stop(connector)" *ngIf="connector.connector_id !== 'alert user'"></ngx-sub-component> -->
+
+                <!-- for alerte users connector we have a special use case where we could show some pop-up to choose which users level to notify  -->
+                <ngx-sub-component [connector]="connector" class="col-12" (launch)="launch(connector)" (stop)="stop(connector)"></ngx-sub-component>
+                <!-- <ngx-product [service]="service" class="col-12" [iscreating]="iscreating" [isdeleting]="isdeleting"></ngx-product> -->
+            </div>
+        <!-- </div> -->
+        </div>
+    </nb-card-body>
+</nb-card>

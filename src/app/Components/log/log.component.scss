@@ -1,0 +1,54 @@
+.header {
+  background-color: #cbcccc;
+    &:hover{
+      background-color: #bfc1c1;
+    }
+  }
+  
+  .expanded {
+    background-color: #cbcccc;
+  }
+  
+  .icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .body {
+    max-height: 10rem;
+    overflow-y: scroll;
+    .margin {
+      margin: 0.5rem;
+      background-color: #e8e8e8;
+      border-bottom: 1px solid black;
+      span {
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  .timesColor {
+    color: #e33768;
+  }
+  
+  #scrollStyle::-webkit-scrollbar-track
+  {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: #F5F5F5;
+  }
+  
+  #scrollStyle::-webkit-scrollbar
+  {
+      width: 0.25rem;
+      height: 0.4rem;
+      background-color: #F5F5F5;
+  }
+  
+  #scrollStyle::-webkit-scrollbar-thumb
+  {
+      background-color: #0ae;
+  }

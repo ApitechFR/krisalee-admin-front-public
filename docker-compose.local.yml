@@ -1,0 +1,16 @@
+version: "3"
+services:
+  frontend:
+    env_file: ./.env
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: krisalee-frontend
+    ports:
+      - 8083:8080
+    volumes:
+      - $DIR/node_modules
+      - $PWD:$DIR
+    environment:
+      - DEV_HOST=0.0.0.0

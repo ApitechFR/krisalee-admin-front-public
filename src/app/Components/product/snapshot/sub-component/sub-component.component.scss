@@ -1,0 +1,120 @@
+
+.container1 {
+  background-color: rgb(103, 104, 105);
+  opacity: 50%;
+  z-index: 2;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding: 20px 20px;
+}
+
+.nopadding {
+  padding: 0;
+}
+.tagContainer {
+  // overflow-x: scroll;
+  .tag{
+
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(to bottom, rgb(54, 160, 231), rgb(54, 160, 231));
+    font-size: 0.8rem;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 0.2rem;
+    margin-right: 0.4rem;
+    border-radius: 70px;
+    // box-shadow: 1px 1px 14px rgb(4, 144, 238);
+    transition-property: box-shadow;
+    transition-duration: 0.75s;
+    -webkit-transition-property: box-shadow;
+    -webkit-transition-duration: 0.75s;
+    cursor: pointer;
+
+    i {
+      transition: transform 0.1s ease;
+      
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+.add-button, .delete-button, .show-comment-button {
+  border: none;
+  color: rgb(54, 160, 231);
+  background-color: inherit;
+  transition: transform 0.1s ease;
+  &:focus {
+      outline: none;
+  }
+  &:hover{
+    color: rgb(17, 146, 233);
+    background-color: inherit;
+    transform: scale(1.2);
+  }
+}
+.delete-button {
+color: #e33768;
+&:hover {
+    color: #eb275f;
+}
+}
+
+//defining variables
+
+$cd-bars: #15DEA5;
+$size: 0.5vh;
+$anim-dur: 1000ms;
+$anim-delay: $anim-dur/5;//math.div($anim-dur, 5); 
+
+//   .load {
+//     width: $size*10;
+//     height: $size*7.5;
+//     display: flex;
+//     justify-content: space-evenly;
+
+
+//     &__bar {
+//         background-color: $cd-bars;
+//         height: 100%;
+//         width: $size;
+//         animation: bars $anim-dur backwards infinite;
+
+
+//         @for $i from 1 through 5 {
+//             &--#{$i} {
+//                 animation-delay: $anim-delay * $i;
+//             }
+//         }
+//     }
+//   }
+
+
+//   @keyframes bars {
+//     0% {
+//         transform: scaleY(0.5);
+//     }
+//     100% {
+//         transform: scaleY(1.0);
+//     }
+//   }
+
+
+.timesColor {
+  color: #e33768;
+}
+
+@media (max-width: 600px){
+  .nopadding{
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,14 @@
+<nb-card class="popup" [ngClass]="{'open': isPopupOpen}">
+    <nb-card-header class="title" style="color: gray;">Historique</nb-card-header>
+    <nb-card-body>
+        <div *ngFor="let log of logs">
+            <span class="timestamp">[{{log.timestamp | date:"dd/MM/yy HH:mm:ss"}}]</span>
+            <span class="level" *ngIf="log.level == 'warn'"> WARNING </span>
+            <span class="level" *ngIf="log.level != 'warn'"> {{log.level | uppercase}} </span>
+            <span class="message">{{log.message}}</span>
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button class="cancel" nbButton status="primary" (click)="dismiss()">Fermer</button>
+    </nb-card-footer>
+  </nb-card>

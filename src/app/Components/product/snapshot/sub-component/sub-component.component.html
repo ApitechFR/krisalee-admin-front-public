@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4 nopadding">
+            Sauvegarde du {{snapshot.create_date | date:"dd/MM/yy HH:mm:ss"}}
+        </div>
+        <div class="col-7 nopadding tagContainer">
+            <span class="tag" *ngFor="let tag of snapshot.snapTags" title="{{tag.description}}">
+                {{tag.name}} 
+                <i class="fa fa-times fa-sm" (click)="unassignTag.emit(tag)" title="Désaffecter le label" *ngIf="checkCanManageSourceTag(tag.type)"></i>
+            </span>
+        </div>
+        <div class="col-1 nopadding">
+            <span class="float-right">
+                <button class="show-comment-button" title="Visualiser les commentaires" (click)="showComment.emit()">
+                    <i class="fa fa-comment fa-sm"></i>
+                </button>
+                <button class="add-button" title="attacher un label à cette sauvegarde" (click)="assignTag.emit(snapshot)">
+                    <i class="fa fa-plus-circle fa-sm"></i>
+                </button>
+                <button class="delete-button" title="supprimer la sauvegarde">
+                    <i class="fa fa-times timesColor float-right" (click)="delete.emit()"></i>
+                </button>
+            </span>
+        </div>
+        <div *ngIf="is_deleting" class="container1">
+            <div class="load">
+                <div class="load__bar load__bar--1"></div>
+                <div class="load__bar load__bar--2"></div>
+                <div class="load__bar load__bar--3"></div>
+                <div class="load__bar load__bar--4"></div>
+                <div class="load__bar load__bar--5"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+
+<nb-card class="status-{{ type }} border-{{ type }}">
+    <nb-card-body>
+        <p [innerHTML]="content" (click)="handleClick($event)"></p>
+    </nb-card-body>
+</nb-card>
+
+<!--
+<div class="card card-body flex-fill border-{{ type }}">
+    <p [innerHTML]="content"></p>
+  </div>
+-->

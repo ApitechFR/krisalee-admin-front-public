@@ -1,0 +1,33 @@
+<div class="container">
+    <h5>Création d'un nouveau Produit</h5>
+    <form [formGroup]="form" (submit)="submit()">
+         <label><strong>Nom: </strong></label>
+        <input type="text" nbInput fullWidth shape="semi-round" placeholder="nom du produit" formControlName="name">
+        <br>
+
+        <label for="description"></label><strong>Description: </strong>
+        <textarea rows="3" cols="40" nbInput fullWidth shape="round"  placeholder="Description" id="description" formControlName="description"></textarea>
+        <br>
+
+        <label><strong>Service: </strong></label>
+        <nb-select class="dropdown" formControlName="service_id" placeholder="Choisissez la brique du produit">
+            <nb-option *ngFor="let service of services" value="{{service.service_id}}"> 
+                {{service.name}}
+            </nb-option>
+        </nb-select>        
+        <br>
+
+        <!-- <label><strong>Organisations: </strong></label>
+        <nb-select multiple class="dropdown" formArrayName="organizations" placeholder="Choisissez les organisations auront accès au produit">
+            <nb-option *ngFor="let organization of organizations" value="{{organization.organization_id}}"> 
+                {{organization.name}}
+            </nb-option>
+        </nb-select>         -->
+        <br>
+
+        <div class="btn-class">
+            <button class="cancel" nbButton status="danger" (click)="cancel()">Annuler</button>
+            <button class="valider" nbButton status="primary" type="submit" [disabled]="form.invalid" [ngClass]="{'disabled': form.invalid}">Valider</button>
+        </div>
+    </form> 
+</div>

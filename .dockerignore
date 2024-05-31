@@ -1,0 +1,7 @@
+# environments files
+./environments/
+example.env
+
+./environment.ts
+
+.env

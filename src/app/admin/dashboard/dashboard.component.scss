@@ -1,0 +1,112 @@
+@import '../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+// Définition des breakpoints
+$small-screen: 576px; // Mobiles
+$medium-screen: 768px; // Tablettes
+$large-screen: 992px; // Ordinateurs portables
+$extra-large-screen: 1200px; // Ordinateurs de bureau
+
+@include nb-install-component()
+{
+  .col-md-6
+  {
+    margin-top: 1rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    ngx-traffic {
+      display: none;
+    }
+  }
+}
+
+#emergency-mode-row {
+  display: flex;
+  justify-content: centre;
+  align-items: center;
+}
+
+.message {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+  color: #31B4AB;
+  font-weight: bold;
+}
+
+.services,
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.service{
+  flex: 1;
+  margin: 0 10px 0 10px;
+}
+
+.danger{
+  flex: 1;
+  margin: -17px 10px 0 10px;
+  height: 191px;
+}
+.welcome {
+  flex: 1;
+  margin: 10px;
+}
+
+.info {
+  width: 100%;
+  margin: 30px;
+  text-align: center;
+  font-size: 20px;
+  color: #000000; 
+}
+
+.support {
+  text-align: left;
+  margin-top: 40px;
+  color: #000000;
+  font-weight: bold;
+  margin-left: -15px;
+}
+
+
+@media (max-width: $small-screen) {
+  .service,
+  .danger,
+  .welcome {
+    flex-basis: 100%;
+    margin: 10px 0;
+  }
+  .info {
+    font-size: 15px;
+  }
+  .message {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: $small-screen) and (max-width: $medium-screen) {
+  .message {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: $medium-screen) and (max-width: $large-screen) {
+  .message {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: $large-screen) and (max-width: $extra-large-screen) {
+  .message {
+    font-size: 32px;
+  }
+}

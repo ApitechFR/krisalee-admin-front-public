@@ -1,0 +1,36 @@
+<nb-card>
+    <nb-card-header class="title">
+        <h2 >Services</h2>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="container nopadding">
+            <div class="row">
+            <!-- <div class="row"> -->
+                <button nbButton (click)="launchAll()" type="button" class="start-all-button" [disabled]="iscreating" *ngIf="!allStarted">
+                    <span class="rocket">
+                        <i class="fa fa-rocket" aria-hidden="true" style="font-size:18px"></i>
+                    </span>
+                    Démarrer tout
+                </button>
+                <button nbButton (click)="stopAll()" type="button" class="start-all-button" [disabled]="isdeleting" *ngIf="allStarted">
+                    <span class="rocket">
+                        <i class="fa fa-stop" aria-hidden="true" style="font-size:18px"></i>
+                    </span>
+                    Arrêter tout
+                </button>
+                <button nbButton type="button" class="purge" (click)="openHistoryPopUp()" *ngIf="logs?.length">
+                    <span class="delete">
+                        <i class="fa fa-history" aria-hidden="true" style="font-size:18px"></i>
+                    </span>
+                    Historique
+                </button>
+            </div>
+            <div class="row" *ngFor="let service of services">
+                <!-- <ngx-product [service]="service" class="col-12" [iscreating]="iscreating" [isdeleting]="isdeleting" [service_status]="!allStarted"></ngx-product> -->
+                <!-- <ngx-product [service]="service" class="col-12" [iscreating]="iscreating" [isdeleting]="isdeleting" (launch)="launch()"></ngx-product> -->
+                <ngx-product [service]="service" [tags]="tags" class="col-12" (launch)="launchService(service, $event)" (stop)="stopService(service)"></ngx-product>
+            </div>
+        <!-- </div> -->
+        </div>
+    </nb-card-body>
+</nb-card>

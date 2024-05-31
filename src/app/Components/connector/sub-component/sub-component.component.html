@@ -1,0 +1,47 @@
+<!-- <div *ngIf="iscreating || isdeleting" [ngClass]="{'container1': iscreating, 'isdeleting': isdeleting}"> -->
+<!-- <div *ngIf="iscreating && !service_status || isdeleting && service_status" class="container1"> -->
+
+<div class="container">
+    <div *ngIf="connector.is_running" class="container1">
+        <div class="load">
+            <div class="load__bar load__bar--1"></div>
+            <div class="load__bar load__bar--2"></div>
+            <div class="load__bar load__bar--3"></div>
+            <div class="load__bar load__bar--4"></div>
+            <div class="load__bar load__bar--5"></div>
+        </div>
+    </div>
+    <div class="row nomargin">
+        <div class="col-sm-12 col-md-5 productName">
+            <!-- <span [ngClass]="{'started': true, 'stopped': false}">
+                <i class="fa fa-circle"></i>
+            </span> -->
+            <span>
+                <i class="fa fa-play pointer" (click)="launch.emit()" title="{{connector.description}}"></i>
+            </span>
+            <strong>{{connector.name}}</strong>
+        </div>
+        <div class="col-sm-12 col-md-7">
+            <div class="row">
+                <div class="col-sm-7 col-md-9">
+                    <span  *ngIf="connector.last_run_datetime" [ngClass]="{'OK':connector.last_run_status, 'erreur': !(connector.last_run_status)}">
+                        Dernière exécution : {{connector.last_run_datetime | date:"dd/MM/yy HH:mm"}}
+                        <span *ngIf="connector.last_run_status===1 || connector.last_run_status===0">=> {{getstatusString(connector.last_run_status)}}</span>
+                    </span>
+                </div>
+                <div class="col-sm-2 col-md-3">
+                    <a *ngIf="connector.connector_id == alertUserId" (click)="navigateToUserRoute()"><button class="btn" title="Aller vers la page Utilisateurs">Utilisateurs</button></a>
+                </div>
+                <!-- <div class="col-1">
+                    <nb-icon icon="more-horizontal-outline" (click)="planify()"></nb-icon>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row description" *ngIf="connector.description">
+        {{connector.description}}
+    </div> -->
+    <div class="row logs" *ngIf="logs?.length">
+        <ngx-log [logs]="logs" class="col-12"></ngx-log>
+    </div>
+</div>

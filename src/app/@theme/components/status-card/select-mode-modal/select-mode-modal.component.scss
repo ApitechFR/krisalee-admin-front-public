@@ -1,0 +1,196 @@
+.popup {
+  transform: scale(0);
+  transition: transform 0.3s;
+}
+
+.popup.open {
+  transform: scale(1);
+}
+
+.modal-confirm {
+  //color: #636363;
+  width: 340px;
+}
+
+.modal-confirm .modal-content {
+  padding: 20px;
+  border-radius: 5px;
+  //border: 0.3px solid red;
+  text-align: center;
+  font-size: 14px;
+}
+.unordered-list{
+  text-align:initial;
+  display: flex;
+  flex-wrap: wrap;
+}
+.mode-item {
+  display: flex;
+  align-items: flex-start;
+  margin-right: 10px; /* Optional: Adjust spacing between items */
+}
+
+.mode-item .mode-label {
+  margin-right: 5px; /* Optional: Adjust spacing between label and description */
+  white-space: nowrap; /* Prevent wrapping */
+}
+.mode-label {
+  min-width: 6rem;
+}
+.highlighted {
+  background-color: rgba(96, 199, 193,0.3); /* Change to your desired highlight color */
+  transition: 0.5s ease-in-out;
+  padding-inline: 6px;
+  border-radius: 6px;
+}
+
+
+.modal-confirm .modal-header {
+  border-bottom: none;
+  position: relative;
+}
+
+.modal-confirm h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -10px;
+}
+
+.modal-confirm .close {
+  position: absolute;
+  top: -5px;
+  right: -2px;
+}
+
+.modal-confirm .modal-body {
+  //color: #999;
+}
+
+.card-body {
+  max-height: 14rem;
+}
+
+.custom-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.custom-radio-label {
+  display: flex;
+  align-items: center;
+}
+
+.custom-radio-input {
+  margin-right: 8px;
+  outline: none;
+  border: none;
+}
+
+.custom-radio-label span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.modal-confirm .modal-footer {
+  border: none;
+  text-align: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 10px 15px 25px;
+}
+
+.modal-confirm .modal-footer a {
+  //color: #999;
+}
+
+.modal-confirm .icon-box {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  border: 3px solid #5a5758
+;
+}
+
+.modal-confirm .icon-box i {
+  color: #5a5758;
+  font-size: 46px;
+  display: inline-block;
+  margin-top: 13px;
+}
+
+.btn-class {
+  margin-top: 3rem;
+  margin-bottom: -1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-confirm .btn,
+.modal-confirm .btn:active {
+  color: #fff;
+  border-radius: 4px;
+  background: #60c7c1;
+  text-decoration: none;
+  transition: all 0.4s;
+  line-height: normal;
+  min-width: 100px;
+  border: none;
+  min-height: 30px;
+  margin: 0 5px;
+}
+
+.modal-confirm .btn-secondary {
+  background: #c1c1c1;
+}
+
+.modal-confirm .btn-secondary:hover,
+.modal-confirm .btn-secondary:focus {
+  background: #a8a8a8;
+}
+
+.modal-confirm .btn-danger {
+  background: #ff4474;
+}
+
+.modal-confirm .btn-danger:hover,
+.modal-confirm .btn-danger:focus {
+  background: #b41d48;
+}
+
+.trigger-btn {
+  display: inline-block;
+  margin: 100px auto;
+}
+nb-select{
+  padding-top: 1rem;
+}
+
+.paragraph{
+  margin-bottom: 3rem;
+}
+
+.paragraph-description {
+  text-align: center;
+  margin:0 1rem;
+}
+
+.bold-description {
+  font-weight: bold;
+  color: #60c7c1; /* Replace with your desired color */
+}
+
+@media screen and (min-width: 1024px) {
+  .modal-confirm {
+    width: 500px;
+  }
+  p.paragraph{
+    word-break: break-word;
+    white-space: pre-line;
+  }
+}
+

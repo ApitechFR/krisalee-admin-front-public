@@ -1,0 +1,61 @@
+<!--
+<nb-card (click)="on = !on" [ngClass]="{'off': !on}">
+   
+    <div class="icon-container">
+        <div class="icon status-{{ type }}">
+        <ng-content></ng-content>
+        </div>
+    </div>
+
+
+    <div class="details">
+        <div class="title h5">{{ title }}</div>
+        <div class="status h4 {{ on ? 'text-danger' : 'text-primary' }}">{{ on ? 'ACTIVÉ' : 'DÉSACTIVÉ' }}</div>
+    </div>
+   
+</nb-card>
+-->
+<!--
+<div class="card card-body flex-fill" (click)="on = !on" [ngClass]="{'off': !on}">
+
+
+    <div class="row">
+        <div class="icon-container">
+            <div class="icon status-{{ type }}">
+                <ng-content></ng-content>
+            </div>
+        </div>
+        <div class="details">
+            <div class="title h5">{{ title }}</div>
+            <div class="status h4 {{ on ? 'text-danger' : 'text-primary' }}">{{ on ? 'ACTIVÉ' : 'DÉSACTIVÉ' }}</div>
+        </div>
+    </div>
+
+
+</div> -->
+
+
+<nb-card (click)="makeAction(on)" [ngClass]="{'off': on==0, 'test': on==2}" id="nb-card" class="pointer">
+    <div class="icon-container">
+      <div class="icon status-{{ type }}">
+        <ng-content></ng-content>
+      </div>
+    </div>
+    <div class="details">
+      <div class="title h5">{{ title }}</div>
+      <div class="status h4" [ngClass]="{ 'text-primary' : on==0, 'text-danger' : on==1, 'text-warning': on==2}">{{ on==0 ? 'DÉSACTIVÉ': '' }} {{ on==1 ? 'ACTIVÉ' : '' }} {{ on==2 ? 'EN CONFIGURATION' : ''}}</div>
+    </div>
+
+</nb-card>
+<div class="overlay" *ngIf="loading">
+        <div class="lds-dual-ring"></div>
+</div>
+
+
+<!-- a layer that will take over our card when services are creating/deleting -->
+
+
+
+
+
+

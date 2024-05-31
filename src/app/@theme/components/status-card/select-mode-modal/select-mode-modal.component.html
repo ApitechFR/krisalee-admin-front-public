@@ -1,0 +1,49 @@
+<div id="myModal" class="popup" [ngClass]="{'open': isPopupOpen}">
+
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header flex-column">
+        <div class="icon-box">
+          <i class="fa {{headerIcon}}" aria-hidden="true"></i>
+        </div>
+      </div>
+<!--      <div class="modal-body" *ngIf="!loading;else spinner">-->
+      <div class="modal-body" >
+        <p class="paragraph"><b>{{ content }}</b></p>
+
+        <div class="unordered-list">
+          <div [class.highlighted]="mode.value === form.get('modeDemarrage').value" *ngFor="let mode of modeDemarrageOptions" class="mode-item">
+            <div class="mode-label"><b>{{ mode.label }} :</b></div>
+            <div class="mode-description">{{ mode.description }}</div>
+          </div>
+        </div>
+
+
+
+        <form [formGroup]="form" (submit)="submit()">
+          <!--          <p class="paragraph-description" [class.bold-description]="selectedDescription">{{selectedDescription}}</p>-->
+          <nb-select style="width: 150px" formControlName="modeDemarrage" placeholder="Choisissez un mode de démarrage"
+                     (selectedChange)="onModeChange($event)">
+            <nb-option *ngFor="let option of modeDemarrageOptions" [value]="option.value">
+              {{ option.label }}
+            </nb-option>
+          </nb-select>
+
+
+          <div class="btn-class">
+            <button class="btn btn-secondary" nbButton (click)="cancel()">Annuler</button>
+            <button class="btn btn-primary" nbButton type="submit" [disabled]="form.invalid">Démarrer</button>
+          </div>
+        </form>
+      </div>
+      <!--<ng-template #spinner>
+        <div class="d-flex justify-content-center align-items-center" style="margin-top: 2rem;height: 100%">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </ng-template>-->
+
+    </div>
+  </div>
+</div>

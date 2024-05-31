@@ -1,0 +1,14 @@
+<div class="dropdown">
+    <div class="select" (click)="open()">
+        <span class="selected">{{selectedItem}}</span>
+        <i class="fa fa-chevron-down colorChevron" aria-hidden="true" *ngIf="show == false"></i>
+          <i class="fa fa-chevron-up colorChevron" aria-hidden="true" *ngIf="show == true"></i>
+    </div> 
+    <ul class="menu" *ngIf="show == true">
+        <li *ngFor="let item of items" (click)="choose(item) "> 
+            <a>
+                {{item}}
+            </a> 
+        </li>
+    </ul>
+</div>

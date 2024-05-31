@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="header">
+        <span >Versions</span>
+        <button class="add-button" (click)="addVersion.emit()"><i class="fa fa-plus-circle" title="Ajouter une version au produit"></i></button>
+        <span (click)="toggle()">
+            <i class="fa fa-chevron-down colorChevron float-right" aria-hidden="true" *ngIf="!expanded"></i>
+            <i class="fa fa-chevron-up colorChevron float-right" aria-hidden="true" *ngIf="expanded"></i>
+        </span>
+    </div>
+    <div class="row" *ngIf="expanded">
+        <div *ngFor="let version of versions" class="col-12">
+            <ul>
+                <li class="version">{{version.name}}
+                    <div class="actions">
+                        <button class="float-right remove-org-btn" (click)="unassignOrganization.emit(version)">Retirer organization</button>
+                        <button class="float-right add-org-btn" (click)="affectOrganization.emit(version)">Affecter organizations</button>
+                    </div>
+                    <button class="delete-button float-right" (click)="deleteVersion.emit(version)" title="Supprimer version"><i class="fa fa-trash fa-sm"></i></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+    <h5>Création d'une nouvelle version</h5>
+    <form [formGroup]="form" (submit)="submit()">
+         <label><strong>Nom: </strong></label>
+        <input type="text" nbInput fullWidth shape="semi-round" placeholder="Choisissez un nom au version" formControlName="name">
+        <br>
+        <label for="description"><strong>Description: </strong></label>
+        <textarea rows="3" cols="40" nbInput fullWidth shape="round"  placeholder="Description" id="description" formControlName="description"></textarea>
+        <br>
+
+        <label><strong>Node Pool: </strong></label>
+        <input type="text" nbInput fullWidth shape="semi-round" placeholder="node pool" formControlName="node_pool">
+
+        <div class="btn-class">
+            <button class="cancel" nbButton status="danger" (click)="cancel()">Annuler</button>
+            <button class="valider" nbButton status="primary" type="submit" [disabled]="form.invalid" [ngClass]="{'disabled': form.invalid}">Valider</button>
+        </div>
+    </form> 
+</div>

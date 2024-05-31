@@ -1,0 +1,112 @@
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+@import '../../styles/themes';
+
+// Définition des breakpoints
+$small-screen: 576px; // Mobiles
+
+@include nb-install-component() {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    width: calc(#{nb-theme(sidebar-width)} - #{nb-theme(header-padding)});
+  }
+
+  nb-action {
+    height: auto;
+    display: flex;
+    align-content: center;
+  }
+
+  nb-user {
+    cursor: pointer;
+  }
+
+  ::ng-deep nb-search button {
+    padding: 0!important;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    width: auto;
+
+    .sidebar-toggle {
+      @include nb-ltr(padding-right, 1.25rem);
+      @include nb-rtl(padding-left, 1.25rem);
+      text-decoration: none;
+      color: nb-theme(text-hint-color);
+      nb-icon {
+        font-size: 1.75rem;
+      }
+    }
+
+    .logo {
+      // padding: 0 1rem;
+      font-size: 1.75rem;
+      @include nb-rtl(border-right, 1px solid nb-theme(divider-color));
+      white-space: nowrap;
+      text-decoration: none;
+      color: #31B4AB;
+    }
+
+    .logo_img {
+      padding: 0 1.25rem;
+      @include nb-ltr(border-left, 1px solid nb-theme(divider-color));
+    }
+  }
+
+  .status-card-container{
+    // background-color: #a7a0a0;
+    display: flex;
+    align-items: center;
+    width: auto;
+  }
+
+  @include media-breakpoint-down(sm) {
+    .control-item {
+      display: none;
+    }
+    .user-action {
+      border: none;
+      padding: 0;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    nb-select {
+      display: none;
+    }
+  }
+
+  // Media queries pour les mobiles
+  @media screen and (max-width: $small-screen) {
+
+    .logo {
+      display: none;
+    }
+    .status-card-container {
+      margin-left: -16rem;
+      width: 10rem;
+    }
+    .user-action {
+      margin-right: -15rem;
+      padding :3rem
+    }
+
+    .header-container {
+      display: flex;
+      
+    }
+
+    .sidebar-toggle {
+      margin-right: 3rem;
+    }
+
+  }
+
+}

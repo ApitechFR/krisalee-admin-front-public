@@ -1,0 +1,109 @@
+// Définition des breakpoints
+$small-screen: 576px; // Mobiles
+$medium-screen: 768px; // Tablettes
+$large-screen: 992px; // Ordinateurs portables
+$extra-large-screen: 1200px; // Ordinateurs de bureau
+
+.title {
+    margin-top: 80px;
+    display: inline-block;
+    width: 85%;
+
+    // Media queries pour les mobiles
+    @media screen and (max-width: $small-screen) {
+        margin-top: 40px; // Ajustement pour les mobiles
+    }
+}
+
+.add-button {
+    border: none;
+    color: azure;
+    background-color: inherit;
+    transition: transform 0.1s ease;
+    display: inline-block;
+
+    &:focus {
+        outline: none;
+    }
+
+    i {
+        color: rgb(54, 160, 231);
+        &:hover {
+            color: rgb(17, 146, 233);
+            background-color: inherit;
+            transform: scale(1.2);
+        }
+    }
+    // Media queries pour les mobiles
+    @media screen and (max-width: $small-screen) {
+        font-size: 14px; // Taille de police en pixels pour les mobiles
+    }
+}
+
+.delete-button, .update-button {
+    border: none;
+    background-color: inherit;
+    color: #292727;
+    transition: transform 0.1s ease;
+    display: inline-block;
+    width: 50%;
+
+    &:hover {
+        color: #0f0e0f;
+        transform: scale(1.2);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+.delete-button {
+    color: #e33768;
+    &:hover {
+        color: #eb275f;
+    }
+}
+
+// Media queries pour les mobiles
+@media screen and (max-width: $small-screen) {
+
+    .table-bordered {
+        font-size: 0.6rem;
+    }
+    .title{
+        font-size: 1rem;
+    }
+}
+
+// Media queries pour les tablettes
+@media screen and (min-width: $medium-screen) and (max-width: $large-screen) {
+    .title {
+        margin-top: 60px; // Ajustement pour les tablettes
+    }
+    .table-bordered {
+        font-size: 14px;
+        margin: 10px;
+    }
+}
+
+// Media queries pour les ordinateurs portables
+@media screen and (min-width: $large-screen) and (max-width: $extra-large-screen) {
+    .title {
+        margin-top: 70px; // Ajustement pour les ordinateurs portables
+    }
+    .table-bordered {
+        font-size: 16px;
+        margin: 20px;
+    }
+}
+
+// Media queries pour les ordinateurs de bureau
+@media screen and (min-width: $extra-large-screen) {
+    .title {
+        margin-top: 100px; // Ajustement pour les ordinateurs de bureau
+    }
+    .table-bordered {
+        font-size: 14px;
+        margin: 30px;
+    }
+}

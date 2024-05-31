@@ -1,0 +1,63 @@
+<div class="conrainer-fluid" (click)="open()">
+    <div class="row header" [ngClass]="{'expanded': expanded}">
+        <div class="col-sm-10 col-11 cursor">Gestion des sauvegardes</div>
+        <div class="col-sm-2 col-1 icons">
+            <i class="fa fa-chevron-down colorChevron float-right" aria-hidden="true" *ngIf="!expanded"></i>
+            <i class="fa fa-chevron-up colorChevron float-right" aria-hidden="true" *ngIf="expanded"></i>
+            <!-- <i class="fa fa-trash"></i> -->
+        </div>
+    </div>
+    <!-- <div class="row body" id="scrollStyle" *ngIf="expanded">
+        <div *ngFor="let snapshot of snapshots" class="row margin">
+            <div class="col-10">
+                {{snapshot.snapshot_id}}
+            </div>
+            <div class="col-1">
+                <i class="fa fa-times timesColor float-right" (click)="delete.emit()"></i>
+            </div>
+        </div>
+    </div> -->
+</div>
+<div class="container-fluid body" id="scrollStyle" *ngIf="expanded">
+
+    <!-- <div *ngIf="is_deleting" class="container1">
+        <div class="load">
+            <div class="load__bar load__bar--1"></div>
+            <div class="load__bar load__bar--2"></div>
+            <div class="load__bar load__bar--3"></div>
+            <div class="load__bar load__bar--4"></div>
+            <div class="load__bar load__bar--5"></div>
+        </div>
+    </div> -->
+<!-- 
+    <div 
+        *ngIf="is_deleting"
+        class="pulse-loader"
+        [style.margin]="'70px auto'"
+        [style.width]="'100px'"
+        [style.height]="30"
+        [style.color]="'#74b9ff'"
+        >
+        <div></div>
+        <div></div>
+        <div></div>
+    </div> -->
+
+
+    <!-- <div *ngFor="let snapshot of snapshots" class="margin row"> -->
+    <div *ngFor="let snapshot of snapshots" class="margin">
+
+
+        <ngx-sub-component [snapshot]="snapshot" 
+                            (delete)="delete(snapshot.snapshot_id)" 
+                            (assignTag)="assignTag(snapshot)" 
+                            (unassignTag)="unassignTag(snapshot, $event)"
+                            (showComment)="showComment.emit(snapshot)"></ngx-sub-component>
+        <!-- <div class="col-11">
+            Sauvegarde du {{snapshot.create_date | date:"dd/MM/yy HH:mm:ss"}}
+        </div>
+        <div class="col-1">
+            <i class="fa fa-times timesColor float-right" (click)="delete(snapshot.snapshot_id)"></i>
+        </div> -->
+    </div>
+</div>

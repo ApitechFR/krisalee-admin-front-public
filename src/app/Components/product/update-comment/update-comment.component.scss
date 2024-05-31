@@ -1,0 +1,43 @@
+.container {
+    width: 40rem;
+    background-color: #ebedf3;
+    padding: 1.3rem;
+}
+
+.btn-class {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10rem;
+    button {
+        width: 6.25rem;
+        height: 2.5rem;
+        border: 0.06rem solid transparent; 
+        border-radius: 0.25rem;
+        color: white;
+        &.valider{
+            background-color: blue;
+        }
+        &.cancel {
+            background-color: red;
+        }
+
+        &.disabled {
+            background-color: rgb(161, 159, 159);
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 600px){
+    .btn-class {
+        margin-top: 2rem;
+        button {
+            width: 4rem;
+            height: 1.9rem;
+            border-radius: 0.15rem;
+            font-size: 0.8rem
+        }
+    }
+}

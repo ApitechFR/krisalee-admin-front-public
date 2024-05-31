@@ -1,0 +1,92 @@
+.container{
+    width: 20rem;
+    padding: 1em;
+    background-color: #ebedf3;
+}
+
+h3{
+    font-size: 1.4em;
+}
+
+.modelancement{
+    width: 10rem;
+    margin-left: 0.7rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+
+}
+
+.description{
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+.maindropdown{
+    min-width: 300px !important;
+    margin-left: 2rem;
+}
+
+.is_invalid{
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
+.checkboxAndDropdown{
+    margin-bottom: 0.8rem;
+}
+
+.checkboxParent{
+    display: inline-block;
+    width: 15rem;
+    
+    .checkbox{
+        margin-left: 1.5rem;
+    }
+
+}
+
+.dropdown{
+    min-width: 16rem;
+    margin: 0px;
+}
+
+.alert_level_0 {
+    margin-top: 2rem;
+    padding: 1.5rem;
+}
+
+
+button {
+    width: 6.25rem;
+    height: 2.5rem;
+    border: 0.06rem solid transparent; 
+    border-radius: 0.25rem;
+    color: white;
+    &.valider{
+        background-color: blue;
+    }
+    &.cancel {
+        background-color: red;
+    }
+    &.disabled {
+        background-color: rgb(161, 159, 159);
+    }
+}
+
+.btn-class {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .container{
+        width: 40rem;
+        min-height: 20rem;
+        padding: 1em;
+    }
+    h3{
+        font-size: 2em;
+    }
+}

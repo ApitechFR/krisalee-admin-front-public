@@ -1,0 +1,20 @@
+<nb-card class="container">
+    <nb-card-header>
+        <strong>Commentaire pour la sauvegarde du {{snapshot.create_date | date:"dd/MM/yy HH:mm:ss"}}</strong>
+    </nb-card-header>
+    <nb-card-body>
+        <span *ngIf="snapshot.comment">
+            {{snapshot.comment}}
+        </span>
+        <span *ngIf="!snapshot.comment" style="color: chocolate;">
+            La sauvegarde sélectionnée n'a pas de commentaire. Cliquez sur 'Ajouter' si vous souhaitez ajouter des commentaires.
+        </span>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="btn-class">
+            <button class="cancel" nbButton status="danger" (click)="close()">Fermer</button>
+            <button class="valider" nbButton status="primary" (click)="onModifyClick()" *ngIf="snapshot.comment">Modifier</button>
+            <button class="valider" nbButton status="primary" (click)="onModifyClick()" *ngIf="!snapshot.comment">Ajouter</button>
+        </div>
+    </nb-card-footer>
+</nb-card>

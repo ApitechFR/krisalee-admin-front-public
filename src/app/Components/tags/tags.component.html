@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header class="title">
+        <h2 >Gestion des labels</h2>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="container">
+                                                <!-- Tags management -->
+            <div class="row">
+                <ngx-management-component [itemName]="'labels'" [items]="tags" class="col-12" (delete)="deleteTag($event)" (add)="addTag()"></ngx-management-component>
+            </div>
+
+        </div>
+</nb-card-body>
+</nb-card>

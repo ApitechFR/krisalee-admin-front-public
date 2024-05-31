@@ -1,0 +1,27 @@
+
+export class ServicesCredentials {
+  NEXT_CLOUD_USERNAME: string;
+
+  NEXT_CLOUD_PASSWORD: string;
+
+  MAILSERVER_POSTMASTER_USERNAME: string;
+
+  MAILSERVER_POSTMASTER_PASSWORD: string;
+
+  KC_SERVICE_ADMIN_USERNAME: string;
+
+  KC_SERVICE_ADMIN_PASSWORD: string;
+  
+  public constructor(NEXT_CLOUD_USERNAME: string, NEXT_CLOUD_PASSWORD: string, 
+                    MAILSERVER_POSTMASTER_USERNAME: string, MAILSERVER_POSTMASTER_PASSWORD: string, 
+                    KC_SERVICE_ADMIN_USERNAME: string, KC_SERVICE_ADMIN_PASSWORD: string)
+                    {
+
+                      this.NEXT_CLOUD_USERNAME = NEXT_CLOUD_USERNAME;
+                      this.NEXT_CLOUD_PASSWORD = NEXT_CLOUD_PASSWORD;
+                      this.MAILSERVER_POSTMASTER_USERNAME = MAILSERVER_POSTMASTER_USERNAME;
+                      this.MAILSERVER_POSTMASTER_PASSWORD = MAILSERVER_POSTMASTER_PASSWORD;
+                      this.KC_SERVICE_ADMIN_USERNAME = KC_SERVICE_ADMIN_USERNAME;
+                      this.KC_SERVICE_ADMIN_PASSWORD = KC_SERVICE_ADMIN_PASSWORD;
+                    }
+}

@@ -1,0 +1,106 @@
+
+form {
+    width: 40rem;
+    // height: 25rem;
+    background-color: #ebedf3;
+    padding: 1.3rem;
+}
+.sms_header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+h4{
+    margin-bottom: 3rem;
+    color: #1289a0;
+}
+
+h5{
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.dropdown{
+    min-width: 16rem;
+}
+
+.title {
+    margin-top: 1.8rem;
+}
+
+.dropdownParent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    span{
+        margin-right: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+}
+
+.btn-class {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10rem;
+    button {
+        height: 2.5rem;
+        border: 0.06rem solid transparent; 
+        border-radius: 0.25rem;
+        color: white;
+        &.valider{
+            background-color: blue;
+        }
+        &.cancel {
+            background-color: red;
+        }
+
+        &.disabled {
+            background-color: rgb(161, 159, 159);
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    form {
+      width: 20rem;
+      background-color: #ebedf3;
+    }
+    h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    h5 {
+      font-size: 0.8em;
+    }
+    .btn-class {
+      margin-top: 2rem;
+      button {
+        //width: 4rem;
+        height: 1.9rem;
+        border-radius: 0.15rem;
+        font-size: 0.8rem;
+
+        //&.valider {
+        //  display: block;
+        //  height: auto;
+        //  white-space: normal;
+        //  overflow: visible;
+        //}
+
+      }
+    }
+    .dropdown {
+      min-width: 17.39rem;
+    }
+    .sms_header{
+      display: flex;
+      flex-direction: column;
+      align-items: initial;
+      padding-right: initial;
+    }
+}

@@ -1,0 +1,18 @@
+<nb-card (click)="makeAction(on)" [ngClass]="{'off': on==0, 'test': on==2, 'loading': loading}"
+            id="nb-card"
+            class="pointer row"
+            [nbSpinner]="loading" nbSpinnerSize="small" nbSpinnerStatus="primary">
+    <div class="icon-container col-md-5">
+      <div class="icon status-{{ type }}">
+        <ng-content></ng-content>
+      </div>
+    </div>
+    <div class="details col-md-5">
+      <div class="title"><strong>{{ title }}</strong></div>
+      <div class="status h6" [ngClass]="{ 'text-primary' : on==0, 'text-danger' : on==1, 'text-warning': on==2}">{{ on==0 ? 'DÉSACTIVÉ': '' }} {{ on==1 ? 'ACTIVÉ' : '' }} {{ on==2 ? 'EN CONFIGURATION' : ''}}</div>
+    </div>
+
+</nb-card>
+<!-- <div class="overlay" *ngIf="loading">
+        <div class="lds-dual-ring"></div>
+</div> -->

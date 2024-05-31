@@ -1,0 +1,55 @@
+<div class="container">
+    <form [formGroup]="form" (submit)="submit()">
+        <h4>{{connector.name}}</h4>
+        <div *ngIf="alertLevel">
+            <h5> Niveau d'alerte </h5>
+            <nb-select selected="Niveau 1" class="dropdown" 
+                formControlName="alertLevel" placeholder="choisissez un niveau d'alerte" 
+                (selectedChange)="onChange($event)" 
+                [status]="status"
+            >
+                <nb-option *ngFor="let option of options" value="{{option}}">{{option}}</nb-option>
+            </nb-select>
+            <br><br>
+            <div class="sms_header">
+                <h5> Texte à afficher en début de SMS </h5>
+                <nb-select selected="" class="dropdown" 
+                    formControlName="sms_header" placeholder="ajoutez une entête au message" 
+                    (selectedChange)="onChange($event)" 
+                    [status]="status"
+                >
+                    <nb-option *ngFor="let option of smsHeaderOptions" value="{{option}}">{{option}}</nb-option>
+                </nb-select>
+
+            </div>
+        </div>
+        <div *ngIf="connector.connector_id !== alertUserId">
+            <div class="title">
+                <h5>Sauvegardes :</h5>
+            </div>
+            <div formArrayName="depends_on">
+                <!-- the following controls here(services_to_launch attribute) stands for the list of formGroups -->
+                <div [formGroupName]="i" *ngFor="let item of form.controls?.depends_on?.controls; let i = index" class="dropdownParent">
+                    <span class="service_name">
+                        <!-- <nb-checkbox checked formControlName="checked" class="checkbox">{{ depends_on[i].service_id }} : </nb-checkbox> -->
+                        {{ depends_on[i].service_id }}
+                    </span>
+                    <!-- <label *ngIf="teamLead.get('service_id')?.hasError('required')" class="error">Name required. </label> -->
+                    <nb-select class="dropdown" formControlName="snapshot" placeholder="Choisissez une sauvegarde">
+                        <nb-option *ngFor="let snapshot of depends_on[i].snapshots" value="{{snapshot.snapshot_id}}"> 
+                            {{snapshot.create_date | date:"dd/MM/yy HH:mm:ss"}} 
+                            <span *ngIf="snapshot.snapTags.length">
+                                (<span *ngFor="let tag of snapshot.snapTags">{{tag.name}}</span>)
+                            </span>
+                        </nb-option>
+                    </nb-select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-class">
+            <button class="cancel" nbButton status="danger" (click)="cancel()">Annuler</button>
+            <button class="valider" nbButton status="primary" type="submit" [disabled]="form.invalid" [ngClass]="{'disabled': form.invalid}">{{confirmButtonContent}}</button>
+        </div>
+    </form>
+</div>

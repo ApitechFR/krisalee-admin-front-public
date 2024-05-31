@@ -1,0 +1,73 @@
+<!-- <div *ngIf="iscreating || isdeleting" [ngClass]="{'container1': iscreating, 'isdeleting': isdeleting}"> -->
+<!-- <div *ngIf="iscreating && !service_status || isdeleting && service_status" class="container1"> -->
+    <div class="container">
+        <div *ngIf="service.is_creating && !service.status || service.is_deleting" class="container1">
+            <div class="load">
+                <!--<div class="load__bar load__bar&#45;&#45;1"></div>
+                <div class="load__bar load__bar&#45;&#45;2"></div>
+                <div class="load__bar load__bar&#45;&#45;3"></div>
+                <div class="load__bar load__bar&#45;&#45;4"></div>
+                <div class="load__bar load__bar&#45;&#45;5"></div>-->
+              <nb-progress-bar status="success" [value]="service.progress" [displayValue]="true"></nb-progress-bar>
+            </div>
+        </div>
+        <div class="row nomargin">
+            <div class="col-sm-12 col-md-3 productName">
+                <i class="fa fa-play pointer stopped" (click)="launch.emit(snapshots)" *ngIf="!service.status" title="start"></i>
+                <i class="fa fa-stop pointer started" *ngIf="service.status" (click)="stop.emit()" title="stop"></i>
+                <!-- <span [ngClass]="{'started': service.status, 'stopped': !service.status}">
+                    <i class="fa fa-circle"></i>
+                </span> -->
+                <strong>{{service.name}}</strong>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div *ngIf="!(service.is_creating || service.is_deleting) && service.last_run_datetime" class="lastExecution">
+                    <span class="service_details">Dernière exécution: {{service.last_run_datetime | date:"dd/MM/yy HH:mm:ss"}}</span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div *ngIf="ActiveSnapshot && service.status">
+                    Sauvegarde du {{ActiveSnapshot.create_date | date:"dd/MM/yy HH:mm:ss"}}
+                    <span *ngIf="ActiveSnapshot.snapTags.length">
+                        (<span *ngFor="let tag of ActiveSnapshot.snapTags">{{tag.name}}</span>)
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-1">
+
+            </div>
+            <div class="col-sm-12 col-md-1">
+                <a *ngIf="service.service_url" href="{{service.service_url}}" target="_blank">
+                    <i *ngIf="service.status" class="fa fa-link" [ngClass]="{'text-danger': danger_color}"></i>
+                </a>
+            </div>
+            <!-- <div class="col-5 nopadding">
+                <div class="row nopadding"> -->
+                    <!-- <div class="col-8 tagName">
+                        tag prod
+                    </div> -->
+                    <!-- <div class="col-1">
+                        <i class="fa fa-circle"></i>
+                    </div> -->
+                    <!-- <div class="col-1">
+                        <i class="fa fa-play" (click)="launch()" *ngIf="!service.status"></i>
+                        <i class="fa fa-stop" *ngIf="service.status" (click)="stop()"></i>
+                    </div> -->
+                    <!-- <div class="col-1">
+                        <nb-icon icon="more-horizontal-outline"></nb-icon>
+                    </div> -->
+                <!-- </div>
+            </div> -->
+        </div>
+        <!-- <div class="row execduration" *ngIf="service.status">
+            En cours d'exécution depuis x jours
+        </div> -->
+        <div class="row execduration">
+            <ngx-snapshot class="col-12" [organization_id]="organization_id" [service_id]="service.service_id"
+                        [snapshots]="snapshots" [tags]="tags"
+                        (assign_tag)="assignTag($event)" (unassign_tag)="unassignTag($event)"
+                        (deleteSnapshot)="deleteSnapshot($event)"
+                        (showComment)="showComment($event)">
+            </ngx-snapshot>
+        </div>
+    </div>

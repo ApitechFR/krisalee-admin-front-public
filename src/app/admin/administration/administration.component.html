@@ -1,0 +1,43 @@
+<nb-card>
+    <nb-card-header class="title">
+        <h2 >Administration</h2>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="container">
+            <div class="row">
+                <button nbButton (click)="purge()" type="button" class="purge" title="supprimer les sauvegardes qui ne sont pas dans le système de fichier">
+                    <span class="delete">
+                        <i class="fa fa-trash" aria-hidden="true" style="font-size:18px"></i>
+                    </span>
+                    Nettoyer les sauvegardes
+                </button>
+                <button nbButton (click)="importSnapshots()" type="button" class="import" title="importer les sauvegardes depuis le système de fichier vers la base de données">
+                    <span class="icon_import">
+                        <i class="fa fa-file-import" aria-hidden="true" style="font-size:18px"></i>
+                    </span>
+                    Importer les sauvegardes
+                </button>
+            </div>
+                                                <!-- Services section -->
+            <div class="row">
+                <ngx-management-component [itemName]="'Services'" [items]="services" class="col-12" (delete)="deleteService($event)" (add)="addService()"></ngx-management-component>
+            </div>
+
+                                                <!-- Products section -->
+            <div class="row">
+                <ngx-management-component [itemName]="'Produits'" [items]="products" class="col-12" (delete)="deleteProduct($event)" (add)="addProduct()" (addVersion)="addVersion($event)" (deleteVersion)="deleteVersion($event)" (affectOrganization)="affectOrganization($event)" (unassignOrganization)="unassignOrganization($event)"></ngx-management-component>
+            </div>
+
+                                                <!-- Connectors section -->
+            <div class="row">
+                <ngx-management-component [itemName]="'Connecteurs'" [items]="connectors" class="col-12" (delete)="deleteConnector($event)" (add)="addConnector()"></ngx-management-component>
+            </div>
+
+                                                <!-- Organizations section -->
+            <div class="row">
+                <ngx-management-component [itemName]="'Organizations'" [items]="organizations" class="col-12" (delete)="deleteOrganization($event)" (update)="updateOrganization($event)" (add)="addOrganization()"></ngx-management-component>
+            </div>
+
+        </div>
+</nb-card-body>
+</nb-card>
